@@ -1,0 +1,7 @@
+{
+  "name": "medical-record-system",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
