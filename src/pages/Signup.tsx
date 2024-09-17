@@ -2,15 +2,27 @@ import { IonContent, IonPage, IonInput, IonButton, IonItem, IonGrid, IonRow, Ion
 import './Login.css'; // Reutilizando o estilo da página de login
 import { useState } from 'react';
 import { lockClosedOutline, mailOutline } from 'ionicons/icons';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from '../services/firebaseConfig';
 
 const SignupPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useCreateUserWithEmailAndPassword(auth);
 
-  const handleLogin = () => {
-    // Lógica de autenticação
-    console.log('Email:', email, 'Senha:', password);
+  function handleSignOut(e) {
+    e.preventDefault();
+    createUserWithEmailAndPassword(email, password);
   };
+
+  if (loading) {
+    return <p>Carregando...</p>
+  }
   
   return (
     <IonPage>
@@ -27,7 +39,7 @@ const SignupPage: React.FC = () => {
                       label='Email'
                       labelPlacement='floating'
                       value={email}
-                      onIonChange={(e: CustomEvent) => setEmail(e.detail.value!)}
+                      onIonChange={(e) => setEmail(e.detail.value!)}
                       required
                     />
                 </IonItem>
@@ -38,44 +50,17 @@ const SignupPage: React.FC = () => {
                     label='Senha'
                     labelPlacement='floating'
                     value={password}
-                    onIonChange={(e: CustomEvent) => setPassword(e.detail.value!)}
+                    onIonChange={(e) => setPassword(e.detail.value!)}
                     required
                   />
                 </IonItem>
-                <IonButton expand="block" className="login-button" onClick={handleLogin}>
+                <IonButton expand="block" className="login-button" onClick={handleSignOut}>
                   Cadastrar
                 </IonButton>
               </div>
             </IonCol>
           </IonRow>
         </IonGrid>
-        
-        {/* <div className="login-container">
-          <div className="login-box">
-            <h2>Cadastrar</h2>
-            <IonItem className="login-input">
-              <IonInput
-                type="text"
-                label="Nome de Usuário"
-                labelPlacement="floating"
-                value={username}
-                onIonChange={(e: CustomEvent) => setUsername(e.detail.value!)}
-                required
-              />
-            </IonItem>
-            <IonItem className="login-input">
-              <IonInput
-                type="password"
-                label="Senha"
-                labelPlacement="floating"
-                value={password}
-                onIonChange={(e: CustomEvent) => setPassword(e.detail.value!)}
-                required
-              />
-            </IonItem>
-            <IonButton expand="block">Cadastrar</IonButton>
-          </div>
-        </div> */}
       </IonContent>
     </IonPage>
   );

@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import {
   IonContent,
-  IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
   IonInput,
   IonButton,
   IonItem,
-  IonLabel,
   IonGrid,
   IonRow,
   IonCol,
@@ -16,16 +12,28 @@ import {
   IonRouterLink,
 } from '@ionic/react';
 import { mailOutline, lockClosedOutline } from 'ionicons/icons';
-import './Login.css'; // Importar o arquivo CSS
+import './Login.css';
+import {useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from '../services/firebaseConfig';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
 
-  const handleLogin = () => {
-    // Lógica de autenticação
-    console.log('Email:', email, 'Senha:', password);
+  function handleSignIn(e) {
+    e.preventDefault();
+    signInWithEmailAndPassword(email, password);
   };
+
+  if (loading) {
+    return <p>Carregando...</p>
+  }
 
   return (
     <IonPage>
@@ -42,7 +50,7 @@ const Login: React.FC = () => {
                     label='Email'
                     labelPlacement='floating'
                     value={email}
-                    onIonChange={(e: CustomEvent) => setEmail(e.detail.value!)}
+                    onIonChange={(e) => setEmail(e.detail.value!)}
                     required
                   />
                 </IonItem>
@@ -53,11 +61,11 @@ const Login: React.FC = () => {
                     label='Senha'
                     labelPlacement='floating'
                     value={password}
-                    onIonChange={(e: CustomEvent) => setPassword(e.detail.value!)}
+                    onIonChange={(e) => setPassword(e.detail.value!)}
                     required
                   />
                 </IonItem>
-                <IonButton expand="block" className="login-button" onClick={handleLogin}>
+                <IonButton expand="block" className="login-button" onClick={handleSignIn}>
                   Entrar
                 </IonButton>
                 <p className="forgot-password">Não tem uma conta?
