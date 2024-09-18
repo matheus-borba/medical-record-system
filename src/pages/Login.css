@@ -1,0 +1,83 @@
+.login-background {
+  --background: url('/assets/medical-background.jpg') no-repeat center center fixed;
+  --background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.login-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.login-input {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-end;
+  --color: #106614;
+}
+
+.login-input ion-input {
+  width: 100%;
+}
+
+.login-input ion-icon {
+  font-size: 24px;
+  padding-right: 10px;
+  color: #43a047;
+}
+
+.login-button {
+  --background: #43a047; /* Cor verde */
+  --background-hover: #388e3c; /* Cor verde mais escuro */
+  color: white;
+  margin-top: 20px;
+}
+
+.forgot-password {
+  margin-top: 15px;
+  color: #6c757d;
+}
+
+.signup-link {
+  text-decoration: none; /* Remove o sublinhado do link */
+  color: #43a047; /* Opcional: cor verde correspondente ao tema */
+}
+
+.signup-link:hover {
+  text-decoration: underline; /* Opcional: adiciona sublinhado ao passar o mouse */
+}
+
+.ion-text-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 1200px) {
+  .login-box {
+    max-width: 800px;
+  }
+}
