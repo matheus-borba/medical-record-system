@@ -15,7 +15,7 @@ O **Medical Record System** é um projeto desenvolvido para gerenciar registros 
 1. Clone o repositório para o seu ambiente local:
 
    ```bash
-   git clone https://github.com/usuario/medical-record-system.git
+   git clone https://github.com/matheus-borba/medical-record-system.git
    ```
 
 2. Navegue até o diretório do projeto:
