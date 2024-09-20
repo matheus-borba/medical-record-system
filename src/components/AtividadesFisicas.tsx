@@ -29,7 +29,7 @@ interface DadosPacientes {
 const AtividadesFisicas: React.FC = () => {
   const [pacienteSelecionado, setPacienteSelecionado] = useState<string>('');
   const [dataTabs, setDataTabs] = useState<Paciente[]>([]);
-  const [tipoConsulta, setTipoConsulta] = useState<string>(''); // Novo estado para tipo de consulta
+  const [tipoConsulta, setTipoConsulta] = useState<string>('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -141,7 +141,7 @@ const AtividadesFisicas: React.FC = () => {
   plugins: {
     legend: {
       display: true,
-      position: 'top' as const, // Use 'as const' to specify the exact type
+      position: 'top' as const, 
     },
     title: {
       display: true,
@@ -176,10 +176,10 @@ const AtividadesFisicas: React.FC = () => {
           </IonSelect>
         </IonItem>
 
-        <div style={{ position: 'relative', width: '100%', height: '250px' }}>
+        <div style={{ position: 'relative', width: '100%', height: '250px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Bar data={dataChartAtividade} options={optionsAtividade} />
         </div>
-        <div style={{ position: 'relative', width: '100%', height: '250px' }}>
+        <div style={{ position: 'relative', width: '100%', height: '250px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Bar data={dataChartPeso} options={optionsPeso} />
         </div>
 
@@ -199,7 +199,7 @@ const AtividadesFisicas: React.FC = () => {
 
         {/* Renderiza o gráfico de linha somente se um tipo de consulta for selecionado */}
         {tipoConsulta && (
-          <div style={{ position: 'relative', width: '100%', height: '250px' }}>
+          <div style={{ position: 'relative', width: '100%', height: '250px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Line data={dataConsultas} options={optionsConsultas} />
           </div>
         )}

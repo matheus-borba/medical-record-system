@@ -39,7 +39,7 @@ const ScatterChartComponent: React.FC<ScatterChartComponentProps> = ({ dadosAtiv
   const chartData = getChartData();
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '250px' }}>
+    <div style={{ position: 'relative', width: '100%', height: '250px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Scatter data={chartData} />
     </div>
   );

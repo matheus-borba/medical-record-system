@@ -41,7 +41,7 @@ const BarChartComponent: React.FC<BarChartComponentProps> = ({ dadosAtividade })
   const chartData = getChartData();
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '250px' }}>
+    <div style={{ position: 'relative', width: '100%', height: '250px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Bar data={chartData} />
     </div>
   );

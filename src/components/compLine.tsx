@@ -43,7 +43,7 @@ const LineChartComponent: React.FC<LineChartComponentProps> = ({ dadosAtividade 
   const chartData = getChartData();
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '250px' }}>
+    <div style={{ position: 'relative', width: '100%', height: '250px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Line data={chartData} />
     </div>
   );

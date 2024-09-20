@@ -99,14 +99,12 @@ const RadarChartComponent: React.FC<RadarChartComponentProps> = ({ dadosAtividad
         angleLines: {
           display: false,
         },
-        suggestedMin: 0,
-        suggestedMax: 100,
       },
     },
   };
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '250px' }}>
+    <div style={{ position: 'relative', width: '100%', height: '250px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       {chartData ? <Radar data={chartData} options={options} /> : <div>Loading...</div>}
     </div>
   );
