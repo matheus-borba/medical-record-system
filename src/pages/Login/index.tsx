@@ -14,10 +14,10 @@ import {
   IonLoading,
 } from '@ionic/react';
 import { mailOutline, lockClosedOutline } from 'ionicons/icons';
-import './Login.css';
-import {useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '../services/firebaseConfig';
- 
+import './styles.css';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from '../../services/firebaseConfig';
+
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,7 +35,7 @@ const Login: React.FC = () => {
   };
 
   useEffect(() => {
-    if(error) {
+    if (error) {
       setShowToast(true);
     }
   }, [error]);
