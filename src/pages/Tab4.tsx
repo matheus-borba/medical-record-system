@@ -1,15 +1,15 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
-import './Tab3.css';
+import './Tab4.css';
 
-const Tab3: React.FC = () => {
+const Tab4: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <ExploreContainer name="Tab 3 page" />
+        <ExploreContainer name="Tab 4 page" />
       </IonContent>
     </IonPage>
   );
 };
 
-export default Tab3;
+export default Tab4;

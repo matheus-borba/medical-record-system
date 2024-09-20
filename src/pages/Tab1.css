@@ -1,0 +1,19 @@
+.ion-content {
+    overflow-x: auto;
+  }
+  
+  .chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 10px;
+    box-sizing: border-box; 
+    flex-shrink: 0;
+  }
+  
+  @media (min-width: 600px) {
+    .chart-container {
+      max-width: 80%; 
+    }
+  }
+  
