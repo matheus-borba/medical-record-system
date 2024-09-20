@@ -1,0 +1,11 @@
+.aboutus-button {
+    --background: #43a047;
+    --background-hover: #388e3c;
+    color: white;
+    margin-top: 20px;
+  }
+
+.custom-icon {
+  margin-right: 8px;
+  color: white;
+}
