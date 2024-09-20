@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   IonContent,
   IonPage,
@@ -10,15 +10,18 @@ import {
   IonCol,
   IonIcon,
   IonRouterLink,
+  IonToast,
+  IonLoading,
 } from '@ionic/react';
 import { mailOutline, lockClosedOutline } from 'ionicons/icons';
 import './Login.css';
 import {useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../services/firebaseConfig';
-
+ 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showToast, setShowToast] = useState(false);
   const [
     signInWithEmailAndPassword,
     user,
@@ -31,12 +34,15 @@ const Login: React.FC = () => {
     signInWithEmailAndPassword(email, password);
   };
 
-  if (loading) {
-    return <p>Carregando...</p>
-  }
+  useEffect(() => {
+    if(error) {
+      setShowToast(true);
+    }
+  }, [error]);
 
   return (
     <IonPage>
+      <IonLoading message="Aguarde um instante..." duration={0} isOpen={loading} />
       <IonContent fullscreen className="ion-padding login-background">
         <IonGrid className="login-container">
           <IonRow className="ion-justify-content-center">
@@ -75,6 +81,13 @@ const Login: React.FC = () => {
             </IonCol>
           </IonRow>
         </IonGrid>
+        <IonToast
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
+          message="Usuário ou Senha inválido!"
+          duration={2000}
+          position="bottom"
+        />
       </IonContent>
     </IonPage>
   );

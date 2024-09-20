@@ -1,5 +1,5 @@
-import { IonContent, IonPage, IonInput, IonButton, IonItem, IonGrid, IonRow, IonCol, IonIcon } from '@ionic/react';
-import './Login.css'; // Reutilizando o estilo da página de login
+import { IonContent, IonPage, IonInput, IonButton, IonItem, IonGrid, IonRow, IonCol, IonIcon, IonRouterLink, IonLoading } from '@ionic/react';
+import './Login.css';
 import { useState } from 'react';
 import { lockClosedOutline, mailOutline } from 'ionicons/icons';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -19,13 +19,10 @@ const SignupPage: React.FC = () => {
     e.preventDefault();
     createUserWithEmailAndPassword(email, password);
   };
-
-  if (loading) {
-    return <p>Carregando...</p>
-  }
   
   return (
     <IonPage>
+      <IonLoading message="Aguarde um instante..." duration={0} isOpen={loading} />
       <IonContent fullscreen className="ion-padding login-background">
         <IonGrid className='login-container'>
           <IonRow className="ion-justify-content-center">
@@ -57,6 +54,9 @@ const SignupPage: React.FC = () => {
                 <IonButton expand="block" className="login-button" onClick={handleSignOut}>
                   Cadastrar
                 </IonButton>
+                <p className="forgot-password">Ja tem uma conta?
+                  <IonRouterLink href='/login' className="signup-link"> Acesse.</IonRouterLink>
+                </p>
               </div>
             </IonCol>
           </IonRow>
