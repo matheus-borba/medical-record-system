@@ -53,23 +53,29 @@ const Login: React.FC = () => {
                   <IonIcon icon={mailOutline} slot="start" />
                   <IonInput
                     type="email"
-                    label='Email'
                     labelPlacement='floating'
                     value={email}
                     onIonChange={(e) => setEmail(e.detail.value!)}
                     required
-                  />
+                    >
+                    <div slot='label' className='input-label'>
+                      Email
+                    </div>
+                  </IonInput>
                 </IonItem>
                 <IonItem className="login-input">
                   <IonIcon icon={lockClosedOutline} slot="start" />
                   <IonInput
                     type="password"
-                    label='Senha'
                     labelPlacement='floating'
                     value={password}
                     onIonChange={(e) => setPassword(e.detail.value!)}
                     required
-                  />
+                  >
+                    <div slot='label' className='input-label'>
+                      Senha
+                    </div>
+                  </IonInput>
                 </IonItem>
                 <IonButton expand="block" className="login-button" onClick={handleSignIn}>
                   Entrar
