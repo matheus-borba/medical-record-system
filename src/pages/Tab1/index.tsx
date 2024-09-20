@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { IonContent, IonFooter, IonPage, IonTitle, IonToolbar, IonSelect, IonSelectOption } from '@ionic/react';
-import BarChartComponent from '../components/compBarras';
-import ScatterChartComponent from '../components/compDispersao';
-import firebaseService from '../services/firebaseService';
-import './Tab1.css';
-import LineChartComponent from '../components/compLine';
-import RadarChartComponent from '../components/compRadar';
+import { IonContent, IonPage, IonSelect, IonSelectOption } from '@ionic/react';
+import BarChartComponent from '../../components/compBarras';
+import ScatterChartComponent from '../../components/compDispersao';
+import firebaseService from '../../services/firebaseService';
+import './styles.css';
+import LineChartComponent from '../../components/compLine';
+import RadarChartComponent from '../../components/compRadar';
 
 interface Atividade {
   atividade: string;

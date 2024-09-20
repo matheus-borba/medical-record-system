@@ -50,8 +50,10 @@
 }
 
 .login-button {
-  --background: #43a047; /* Cor verde */
-  --background-hover: #388e3c; /* Cor verde mais escuro */
+  --background: #43a047;
+  /* Cor verde */
+  --background-hover: #388e3c;
+  /* Cor verde mais escuro */
   color: white;
   margin-top: 20px;
 }
@@ -62,12 +64,15 @@
 }
 
 .signup-link {
-  text-decoration: none; /* Remove o sublinhado do link */
-  color: #43a047; /* Opcional: cor verde correspondente ao tema */
+  text-decoration: none;
+  /* Remove o sublinhado do link */
+  color: #43a047;
+  /* Opcional: cor verde correspondente ao tema */
 }
 
 .signup-link:hover {
-  text-decoration: underline; /* Opcional: adiciona sublinhado ao passar o mouse */
+  text-decoration: underline;
+  /* Opcional: adiciona sublinhado ao passar o mouse */
 }
 
 .ion-text-center {

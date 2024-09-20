@@ -7,19 +7,19 @@ class FirebaseService {
     try {
       const snapshot = await get(child(dbRef, `pacientes`));
       if (snapshot.exists()) {
-        const pacientes = snapshot.val(); // Obter todos os pacientes
-        const pacienteData = pacientes[selectedPacienteId]; // Acessar pelo ID
+        const pacientes = snapshot.val(); 
+        const pacienteData = pacientes[selectedPacienteId];
         if (pacienteData) {
-          return pacienteData; // Retorna os dados do paciente encontrado
+          return pacienteData;
         } else {
-          throw new Error('No patient data found'); // ID inválido
+          throw new Error('No patient data found');
         }
       } else {
-        throw new Error('No patient data found'); // Nenhum dado encontrado
+        throw new Error('No patient data found');
       }
     } catch (error) {
       console.error("Error fetching patient data:", error);
-      throw error; // Lança o erro para ser tratado onde a função é chamada
+      throw error;
     }
   }
   

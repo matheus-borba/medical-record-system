@@ -1,6 +1,6 @@
-import { IonContent, IonHeader, IonFooter, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import AtividadesFisicas from '../components/AtividadesFisicas'; // Importe o componente aqui
-import './Tab2.css';
+import { IonContent, IonPage } from '@ionic/react';
+import AtividadesFisicas from '../../components/AtividadesFisicas'; // Importe o componente aqui
+import './styles.css';
 
 const Tab2: React.FC = () => {
   return (

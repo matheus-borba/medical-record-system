@@ -1,9 +1,9 @@
 import { IonContent, IonPage, IonInput, IonButton, IonItem, IonGrid, IonRow, IonCol, IonIcon, IonRouterLink, IonLoading } from '@ionic/react';
-import './Login.css';
+import '../Login/styles.css';
 import { useState } from 'react';
 import { lockClosedOutline, mailOutline } from 'ionicons/icons';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '../services/firebaseConfig';
+import { auth } from '../../services/firebaseConfig';
 
 const SignupPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -19,7 +19,7 @@ const SignupPage: React.FC = () => {
     e.preventDefault();
     createUserWithEmailAndPassword(email, password);
   };
-  
+
   return (
     <IonPage>
       <IonLoading message="Aguarde um instante..." duration={0} isOpen={loading} />
@@ -29,16 +29,16 @@ const SignupPage: React.FC = () => {
             <IonCol size="12" size-md="8" size-lg="6" className="ion-text-center">
               <div className='login-box'>
                 <h2 className='login-title'>Cadastre-se</h2>
-                  <IonItem className='login-input'>
+                <IonItem className='login-input'>
                   <IonIcon icon={mailOutline} slot="start" />
-                    <IonInput
-                      type="email"
-                      label='Email'
-                      labelPlacement='floating'
-                      value={email}
-                      onIonChange={(e) => setEmail(e.detail.value!)}
-                      required
-                    />
+                  <IonInput
+                    type="email"
+                    label='Email'
+                    labelPlacement='floating'
+                    value={email}
+                    onIonChange={(e) => setEmail(e.detail.value!)}
+                    required
+                  />
                 </IonItem>
                 <IonItem className="login-input">
                   <IonIcon icon={lockClosedOutline} slot="start" />
